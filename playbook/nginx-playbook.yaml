@@ -1,0 +1,17 @@
+---
+- name: Nginx Installation and Updating Packages
+  hosts: worker1
+  become: yes
+
+  tasks:
+    - name: Installing Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: starting nginx server
+      service:
+        name: nginx
+        state: started
+        enabled: yes

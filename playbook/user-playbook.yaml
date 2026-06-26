@@ -1,0 +1,14 @@
+- name: Creating User
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: update_cache
+      apt:
+        update_cache: yes
+
+    - name: Creating a user
+      user:
+        name: newUser
+        state: present
+
