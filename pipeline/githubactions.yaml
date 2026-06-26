@@ -14,12 +14,12 @@ jobs:
       - name: Deploy
         run: |
           sudo apt update
-          sudo apt install -y openjdk-11-jdk
-          sudo apt install -y tomcat9 tomcat9-admin
+          sudo apt install -y openjdk-17-jdk
+          sudo apt install -y tomcat10 tomcat10-admin
           sudo chmod 777 build.sh
           sudo rm -rf ROOT.war
           ./build.sh
-          sudo rm -rf /var/lib/tomcat9/webapps/*
-          sudo cp ROOT.war /var/lib/tomcat9/webapps/
-          sudo chown tomcat:tomcat /var/lib/tomcat9/webapps/
-          sudo systemctl start tomcat9
+          sudo rm -rf /var/lib/tomcat10/webapps/*
+          sudo cp ROOT.war /var/lib/tomcat10/webapps/
+          sudo chown tomcat:tomcat /var/lib/tomcat10/webapps/
+          sudo systemctl start tomcat10
